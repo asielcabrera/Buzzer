@@ -13,6 +13,7 @@ let group = MultiThreadedEventLoopGroup(numberOfThreads: System.coreCount)
 
 open class Buzz: Router {
     
+    public override init() {}
     
     open func listen(_ port: Int) {
         let reuseAddrOpt = ChannelOptions.socket(

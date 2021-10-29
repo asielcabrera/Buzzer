@@ -110,54 +110,54 @@ public extension BuzzerServerResponse {
 
 
 
-public extension BuzzerServerResponse {
-    
-    func render(pathContext : String = #file,
-                _ template: String, _ options : Any? = nil)
-    {
+//public extension BuzzerServerResponse {
+//    
+//    func render(pathContext : String = #file,
+//                _ template: String, _ options : Any? = nil)
+//    {
 //        let res = self
-        
-        // Locate the template file
+//        
+////         Locate the template file
 //        let path = self.path(to: template, ofType: "mustache", in: pathContext) ?? "/dummyDoesNotExist"
-        
-        //         Read the template file
-        //                fs.readFile(path) { err, data in
-        //                    guard let data = data else {
-        //                        res.status = .internalServerError
-        //                        return res.send("Error: \(err as Optional)")
-        //                    }
-        //
-        //                    data.write(bytes: [0]) // cstr terminator
-        //
-        //                    // Parse the template
-        //                    let parser = MustacheParser()
-        //                    let tree   : MustacheNode = data.withUnsafeReadableBytes {
-        //                        let ba  = $0.baseAddress!
-        //                        let bat = ba.assumingMemoryBound(to: CChar.self)
-        //                        return parser.parse(cstr: bat)
-        //                    }
-        //
-        //                    // Render the response
-        //                    let result = tree.render(object: options)
-        //
-        //                    // Deliver
-        //                    res["Content-Type"] = "text/html"
-        //                    res.send(result)
-        //                }
-    }
-    
-    private func path(to resource: String, ofType: String,
-                      in pathContext: String) -> String?
-    {
-#if os(iOS) && !arch(x86_64) // iOS support, FIXME: blocking ...
-        return Bundle.main.path(forResource: template, ofType: "mustache")
-#else
-        var url = URL(fileURLWithPath: pathContext)
-        url.deleteLastPathComponent()
-        url.appendPathComponent("templates", isDirectory: true)
-        url.appendPathComponent(resource)
-        url.appendPathExtension("mustache")
-        return url.path
-#endif
-    }
-}
+//        
+////                 Read the template file
+//                        fs.readFile(path) { err, data in
+//                            guard let data = data else {
+//                                res.status = .internalServerError
+//                                return res.send("Error: \(err as Optional)")
+//                            }
+//        
+//                            data.write(bytes: [0]) // cstr terminator
+//        
+//                            // Parse the template
+//                            let parser = MustacheParser()
+//                            let tree   : MustacheNode = data.withUnsafeReadableBytes {
+//                                let ba  = $0.baseAddress!
+//                                let bat = ba.assumingMemoryBound(to: CChar.self)
+//                                return parser.parse(cstr: bat)
+//                            }
+//        
+//                            // Render the response
+//                            let result = tree.render(object: options)
+//        
+//                            // Deliver
+//                            res["Content-Type"] = "text/html"
+//                            res.send(result)
+//                        }
+//    }
+//    
+//    private func path(to resource: String, ofType: String,
+//                      in pathContext: String) -> String?
+//    {
+//#if os(iOS) && !arch(x86_64) // iOS support, FIXME: blocking ...
+//        return Bundle.main.path(forResource: template, ofType: "mustache")
+//#else
+//        var url = URL(fileURLWithPath: pathContext)
+//        url.deleteLastPathComponent()
+//        url.appendPathComponent("templates", isDirectory: true)
+//        url.appendPathComponent(resource)
+//        url.appendPathExtension("mustache")
+//        return url.path
+//#endif
+//    }
+//}
